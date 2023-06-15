@@ -53,3 +53,20 @@ Install the necessary Gauge Python dependencies by running:
 ### gauge install python
 
 This command installs the Gauge Python plugin and any other required dependencies.
+
+## Run a Gauge specification with an environment
+
+You can use the -env flag to load an environment when Gauge runs a specification. If -env is not specified, then the `default` environment is loaded during run time.
+
+```bash
+gauge run --env <name_of_env> specs
+```
+
+<name_of_env> = ["petstore-dev, petstore-int"]
+like 
+```bash
+gauge run --env petstore-dev specs
+OR
+gauge run --env petstore-int specs
+```
+For more execution options see [here](https://docs.gauge.org/execution.html)
