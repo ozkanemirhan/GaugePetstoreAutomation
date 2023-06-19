@@ -6,14 +6,30 @@ from getgauge.python import data_store, step
 from util.constants import BASE_URL
 
 
-@step("When I make a GET request to <endpoint>")
-def make_get_request(endpoint):
+@step("When I make a <method> request to <endpoint>")
+def make_get_request(method, endpoint):
     url = f"{BASE_URL}{endpoint}"
-    response = requests.get(url, verify=False)
+
+    if method == "GET":
+        response = requests.get(url, verify=False)
+        pass
+    elif method == "POST":
+        response = requests.post(url, verify=False)
+        pass
+    elif method == "PUT":
+        response = requests.put(url, verify=False)
+        pass
+    elif method == "DELETE":
+        response = requests.delete(url, verify=False)
+        pass
+    else:
+        raise ValueError("Invalid HTTP method specified")
 
     if not response.ok:
-        logging.error("GET request to {} failed with status code: {}".format(
-            url, response.status_code))
+        error_msg = ("{} request to {} failed with status code: {}".format(
+            method, url, response.status_code))
+        logging.error(error_msg)
+        raise AssertionError(error_msg)
 
     if "response" not in data_store.scenario:
         data_store.scenario["response"] = {}
@@ -36,6 +52,11 @@ def verify_response_code(code):
 
 @step("The response body contains <text>")
 def verify_response_body_contains(text):
+    if "response" not in data_store.scenario:
+        error_msg = "No response found. Make a request first."
+        logging.error(error_msg)
+        raise AssertionError(error_msg)
+
     response = data_store.scenario["response"]
     response_json = response.json()
     if text not in response_json:

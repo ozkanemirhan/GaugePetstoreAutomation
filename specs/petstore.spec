@@ -12,7 +12,7 @@ To execute this specification, run
 
 tags: trusted-device, add-device, parallel
 
-* When I make a GET request to "/store/inventory"
+* When I make a "GET" request to "/store/inventory"
 
 * The response code should be "200"
 
