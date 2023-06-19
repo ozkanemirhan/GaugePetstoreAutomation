@@ -70,3 +70,20 @@ OR
 gauge run --env petstore-int specs
 ```
 For more execution options see [here](https://docs.gauge.org/execution.html)
+
+## To run Gauge automation tests by tags
+
+To run Gauge automation tests by tags, you can use the `--tags` option when executing the Gauge command. The `--tags` option allows you to specify one or more tags to include or exclude during test execution.
+
+Here's an example command to run Gauge tests by tags:
+
+```shell
+gauge run --tags=<tag_expression>
+```
+
+Replace `<tag_expression>` with the desired tag expression. The tag expression can be a single tag or a combination of tags using logical operators such as `and`, `or`, and `not`. Here are a few examples:
+
+- Run tests with a single tag:
+  ```shell
+  gauge run --tags=tagname
+  ```

@@ -9,14 +9,14 @@ To execute this specification, run
 
 
 ## Scenario: User Login
+tags: login, admin
 * When I login with back office user
 
 * The response code should be "200"
 
 
-## Ensure pet inventory is available
+## Scenario: Ensure pet inventory is available
 tags: pet-inventory, sanity
-
 * When I make a "GET" request to "/store/inventory"
 
 * The response code should be "200"
@@ -24,9 +24,8 @@ tags: pet-inventory, sanity
 * The response body contains "available"
 
 
-## Ensure pet inventory is not empty
+## Scenario: Ensure pet inventory is not empty
 tags: pet-inventory, sanity
-
 * When I make a "GET" request to "/store/inventory"
 
 * The response code should be "200"
