@@ -5,6 +5,7 @@ import logging
 from getgauge.python import data_store, step, before_scenario
 from util.constants import BASE_URL, USER_NAME, USER_PASSWORD
 
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
