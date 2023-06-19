@@ -9,6 +9,7 @@ from util.constants import BASE_URL
 @step("When I make a <method> request to <endpoint>")
 def make_get_request(method, endpoint):
     url = f"{BASE_URL}{endpoint}"
+    method = method.upper()
 
     if method == "GET":
         response = requests.get(url, verify=False)
