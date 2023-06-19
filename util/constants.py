@@ -2,6 +2,8 @@ import os
 os.getenv('gauge_environment')
 
 BASE_URL = os.environ.get('BASE_URL') or 'https://petstore.swagger.io/v2'
+USER_NAME = "test_user"
+USER_PASSWORD = "1234"
 
 
 class Bcolors:

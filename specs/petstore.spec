@@ -8,12 +8,27 @@ To execute this specification, run
     gauge run specs/petstore.spec
 
 
-## Ensure pet inventory is available
+## Scenario: User Login
+* When I login with back office user
 
-tags: trusted-device, add-device, parallel
+* The response code should be "200"
+
+
+## Ensure pet inventory is available
+tags: pet-inventory, sanity
 
 * When I make a "GET" request to "/store/inventory"
 
 * The response code should be "200"
 
 * The response body contains "available"
+
+
+## Ensure pet inventory is not empty
+tags: pet-inventory, sanity
+
+* When I make a "GET" request to "/store/inventory"
+
+* The response code should be "200"
+
+* The response body should not be empty
