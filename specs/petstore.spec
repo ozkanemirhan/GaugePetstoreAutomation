@@ -35,10 +35,10 @@ tags: pet-inventory, sanity
 
 
 ## Scenario: Verify getting pet details
-* When I make a "GET" request to "/pet/100"
+* When I make a "GET" request to "/pet/88"
 
 * The response code should be "200"
 
 * The response body should not be empty
 
-* The response body contains "Billy"
+* The response body contains "TestPet1"
