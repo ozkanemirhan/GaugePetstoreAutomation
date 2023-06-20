@@ -9,6 +9,29 @@ This repository contains python-gauge tests for the Petstore project
 * pip (pip3)
 
 
+# To create a new Gauge project
+
+1. Create a new directory for your project: Open a terminal or command prompt and navigate to the desired location where you want to create the project. Run the following command to create a new directory:
+
+   ```shell
+   mkdir deneme_1
+   ```
+
+   This will create a new directory named 'deneme_1' in the current location.
+
+2. Initialize the Gauge project: Navigate into the newly created directory using the following command:
+
+   ```shell
+   cd deneme_1
+   ```
+
+   Once inside the 'deneme_1' directory, run the following command to initialize the Gauge project:
+
+   ```shell
+   gauge init python
+   ```
+
+
 ## Create and Install Requirements
 Here are the steps for Windows to create and install requirements using a virtual environment:
 

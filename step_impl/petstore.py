@@ -1,4 +1,6 @@
-# Step implementation for petstore.spec
+# --------------------------
+# Gauge petstore.spec step implementations
+# --------------------------
 
 import requests
 import logging

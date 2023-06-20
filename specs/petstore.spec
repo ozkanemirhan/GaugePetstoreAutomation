@@ -23,6 +23,12 @@ tags: pet-inventory, sanity
 
 * The response body contains "available"
 
+* The response body contains "sold"
+
+* The response body contains "unavailable"
+
+* The response body contains "ready to deliver"
+
 
 ## Scenario: Ensure pet inventory is not empty
 tags: pet-inventory, sanity
@@ -31,7 +37,6 @@ tags: pet-inventory, sanity
 * The response code should be "200"
 
 * The response body should not be empty
-
 
 
 ## Scenario: Verify getting pet details
