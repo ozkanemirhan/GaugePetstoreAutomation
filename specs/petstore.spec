@@ -31,3 +31,14 @@ tags: pet-inventory, sanity
 * The response code should be "200"
 
 * The response body should not be empty
+
+
+
+## Scenario: Verify getting pet details
+* When I make a "GET" request to "/pet/100"
+
+* The response code should be "200"
+
+* The response body should not be empty
+
+* The response body contains "Billy"

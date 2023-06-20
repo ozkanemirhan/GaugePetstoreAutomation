@@ -2,12 +2,20 @@
 
 import requests
 import logging
-from getgauge.python import data_store, step, before_scenario
+from getgauge.python import data_store, step, before_scenario, before_suite
 from util.constants import BASE_URL, USER_NAME, USER_PASSWORD
 
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
+
+
+@before_suite
+def setup():
+    requests.Session().headers.update(
+        {'accept': 'application/json', 'Content-Type': 'application/json'})
+    success_msg = "Request headers updated'"
+    logging.info(success_msg)
 
 
 @before_scenario
@@ -17,14 +25,13 @@ def login_with_credentials():
     password = USER_PASSWORD
 
     url = f"{BASE_URL}/user/login"
-    headers = {'accept': 'application/json'}
 
     params = {
         'username': username,
         'password': password
     }
 
-    response = requests.get(url, params=params, headers=headers, verify=False)
+    response = requests.get(url, params=params, verify=False)
 
     if not response.ok:
         error_msg = (
@@ -93,7 +100,8 @@ def verify_response_body_contains(text):
 
     response = data_store.scenario["response"]
     response_json = response.json()
-    if text not in response_json:
+    if text not in response_json and not any(
+            value == text for value in response_json.values()):
         error_msg = (
             "Expected response body to contain '{}', "
             "but it does not in '{}'".format(text, response_json)
