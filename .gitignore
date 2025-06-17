@@ -12,3 +12,9 @@ reports
 
 # Virtual environment
 venv/
+.DS_Store
+GaugePetstoreAutomation/manifest.json
+GaugePetstoreAutomation/env/default/default.properties
+GaugePetstoreAutomation/env/default/python.properties
+GaugePetstoreAutomation/step_impl/__init__.py
+GaugePetstoreAutomation/step_impl/step_impl.py
